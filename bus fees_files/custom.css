@@ -1,0 +1,926 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background: #F0F4F9;
+}
+
+.main {
+    width: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 60px;
+}
+
+.login h1 {
+    font-weight: 900;
+    font-size: 138px;
+    line-height: 167px;
+    text-align: center;
+    color: #E3000F;
+    margin: 0;
+}
+
+.login h2 {
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 61px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 61px;
+    margin-top: 0;
+}
+
+.login span {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #212121;
+}
+
+/* Login form */
+.login-form {
+    width: 330px;
+    margin: 20px auto 0 auto;
+}
+
+.login-form .input-box {
+    margin-bottom: 18px;
+}
+
+.login-form .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 60px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    padding: 0 15px;
+    margin-bottom: 0;
+}
+
+.login-form .form-group img {
+    margin-right: 15px;
+}
+
+.login-form .form-group input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #9CA3AF;
+}
+
+.form-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 326px;
+    margin-bottom: 18px;
+}
+
+.form-button button {
+    width: 326px;
+    height: 60px;
+    background: #E3000F;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E3000F;
+    cursor: pointer;
+}
+
+.email-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 326px;
+    margin-bottom: 18px;
+}
+
+.email-text p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 26px;
+    color: #6B7280;
+    margin: 0;
+}
+
+.email-text a {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 26px;
+    color: #1565d8;
+    text-decoration: none;
+    padding-left: 3px;
+}
+
+.login-form span {
+    color: #98014c;
+    font-size: 13px;
+}
+
+
+/* Home Style */
+
+.header{
+    width:100%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:73px;
+    margin-bottom: 18px;
+}
+.head-with-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:90%;
+    padding: 0 0px;
+}
+.head-with-nav ul{
+    margin:0;
+    padding:0;
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.head-with-nav ul li{
+    padding-left: 24px;
+}
+.head-with-nav ul li a{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    text-decoration: none !important;
+}
+.head-with-nav ul li.active a{
+    color: #E3000F;
+}
+.head-with-nav ul li a:hover{color:#E3000F;}
+.logo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.logo img {
+    width: auto;
+}
+
+.home-box {
+    /*width: 744px;*/
+	width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+    padding-bottom: 30px;
+}
+
+.user-box {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 4px 8px 8px 4px;
+    border-left: 4px solid #E3441B;
+    width: 100%;
+    margin-bottom: 7px;
+}
+
+.user-detail {
+    padding: 21px 25px;
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;*/
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.user-detail .user-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    margin-right: 15px;
+}
+
+.user-detail .user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+}
+
+.user-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info-box{
+    display: flex;
+    align-items: center;
+}
+
+.user-content h4 {
+    margin: 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #545454;
+}
+
+.user-content p {
+    margin: 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #545454;
+}
+
+.logout-button button{
+    background: transparent;
+    height:auto;
+    width:auto;
+    border:none;
+    outline:none;
+}
+
+.user-box .description {
+    padding: 5px 25px;
+}
+
+.user-box .description p {
+    margin: 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 25px;
+    color: #545454;
+}
+
+/* SelectForm Style */
+.select-form {
+    width: 100%;
+
+}
+.select-form.change-password{
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 4px 8px 8px 4px;
+    padding: 26px;
+}
+.select-form.change-password .select-step-first {
+    border:none;
+    box-shadow: none;
+    padding:0;
+    border:none;
+    margin-bottom: 28px;
+
+}
+.select-form.change-password .Book-button{
+    width:80%;
+    margin:0 auto 0 auto;
+}
+.select-form.change-password .Book-button button{
+    width:100%;
+}
+.select-step-first {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    box-shadow: 2px 2px 4px rgb(0 0 0 / 5%);
+    border-radius: 4px 8px 8px 4px;
+    padding: 20px 25px;
+    border-left: 4px solid #00B2FF;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 7px;
+}
+
+.select-step-first input {
+    background: #FFFFFF;
+    border: 1px solid #DADADA;
+    border-radius: 5px;
+    height: 44px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #737373;
+    padding: 0 14px;
+    outline: none;
+    background-position: 98% 50% !important;
+    cursor: pointer;
+}
+
+.select-step-first.black-color {
+    border-left: 4px solid #000000;
+}
+
+.select-step-first.green-color {
+    border-left: 4px solid #04B44B;
+}
+
+.select-step-first label {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #545454;
+}
+
+.select-step-first select {
+    background: #FFFFFF;
+    border: 1px solid #DADADA;
+    border-radius: 5px;
+    height: 44px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #737373;
+    padding: 0 14px;
+    outline: none;
+    -moz-appearance: none;
+    /* Firefox */
+    -webkit-appearance: none;
+    /* Safari and Chrome */
+    appearance: none;
+    background-position: 98% 50% !important;
+    cursor: pointer;
+}
+
+.detailed-view-box {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 4px 8px 8px 4px;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.view-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 11px;
+}
+
+.view-list span {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #545454;
+}
+
+.view-list p {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #545454;
+    margin: 0;
+    text-align: right;
+}
+
+.amount-color {
+    color: #F00000 !important;
+}
+
+.Book-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.Book-button button {
+    background: #E3000F;
+    border: 1px solid #E3000F;
+    border-radius: 6px;
+    height: 60px;
+    width: 326px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Thank You Style */
+.thank-you-box {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 25px;
+    flex-direction: column;
+}
+
+.thank-message {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.thank-message img {
+    margin-bottom: 25px;
+}
+
+.thank-message span {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 35px;
+    text-align: center;
+    color: #000000;
+}
+
+.detail-for-thanks {
+    width: 100%;
+    margin-top: 27px;
+}
+
+/* Email Template Style */
+.receipt-content .logo a:hover {
+    text-decoration: none;
+    color: #7793C4;
+}
+
+.email-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.email-header .email-social-icons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.email-header .email-social-icons a{
+    padding-left:23px;
+}
+
+.receipt-content .invoice-wrapper {
+    background: #ffffff;
+    padding: 32px 32px 32px;
+    margin-top: 28px;
+    border-radius: 4px;
+}
+
+.receipt-content .invoice-wrapper .payment-details span {
+    color: #A9B0BB;
+    display: block;
+}
+
+.receipt-content .invoice-wrapper .payment-details a {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.receipt-content .invoice-wrapper  .print  {
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.receipt-content .invoice-wrapper  .print a{
+    background: #E3000F;
+    height:56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color:#ffffff;
+    text-decoration: none !important;
+    margin-top: 16px;
+    width: 100%;
+}
+
+.receipt-content {
+    background: #F8FAFC;
+    width: 640px;
+    padding: 40px 48px;
+    float: left;
+    margin: 0 auto;
+}
+.receipt-content .container{
+    padding: 0;
+}
+
+.receipt-content .logo {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.receipt-content .logo a {
+    font-family: Myriad Pro, Lato, Helvetica Neue, Arial;
+    font-size: 36px;
+    letter-spacing: .1px;
+    color: #555;
+    font-weight: 300;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.receipt-content .invoice-wrapper .intro p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    color: #384860;
+    margin:0 0 16px 0;
+}
+
+.receipt-content .invoice-wrapper .intro p strong{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    color: #121A26;
+}
+
+.receipt-content .invoice-wrapper .payment-info {
+    margin-top: 25px;
+    padding-top: 15px;
+}
+
+.receipt-content .invoice-wrapper .payment-info span {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    color: #121A26;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.receipt-content .invoice-wrapper .payment-info p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    color: #384860;
+    margin:0;
+}
+
+.receipt-content .invoice-wrapper .payment-info p strong {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    color: #E3000F;
+}
+
+.receipt-content .invoice-wrapper .total-amount{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top:32px;
+}
+
+.receipt-content .invoice-wrapper .total-amount span {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    color: #121A26;
+}
+.receipt-content .invoice-wrapper .total-amount p {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    color: #121A26;
+    margin:0;
+}
+
+.email-footer-detail{
+    width:100%;
+    float:left;
+    padding-top:10px;
+}
+.email-footer-detail p{
+    margin:0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    color: #202B3C;
+}
+
+.email-footer-detail p a{
+    text-decoration: none !important;
+}
+
+@media (max-width: 767px) {
+    .receipt-content .invoice-wrapper .payment-info .text-right {
+        text-align: left;
+        margin-top: 20px;
+    }
+	.home-box {
+		width: 100%;
+	}
+}
+
+.receipt-content .invoice-wrapper .payment-details {
+    border-top: 1px solid #E2E8F0;
+    margin-top: 32px;
+    padding-top:32px;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.receipt-content .invoice-wrapper .payment-details .user-detail{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 17px;
+    padding: 0;
+    border: none;
+}
+
+.receipt-content .invoice-wrapper .payment-details .user-detail span{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    color: #384860;
+}
+
+.receipt-content .invoice-wrapper .payment-details .user-detail p{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    color: #121A26;
+    margin:0;
+    text-align: right;
+}
+
+@media (max-width: 767px) {
+    .receipt-content .invoice-wrapper .payment-details .text-right {
+        text-align: left;
+        margin-top: 20px;
+    }
+	.home-box {
+		width: 100%;
+	}
+}
+
+.receipt-content .invoice-wrapper .line-items {
+    margin-top: 40px;
+}
+
+.receipt-content .invoice-wrapper .line-items .headers {
+    color: #A9B0BB;
+    font-size: 13px;
+    letter-spacing: .3px;
+    border-bottom: 2px solid #EBECEE;
+    padding-bottom: 4px;
+}
+
+.receipt-content .invoice-wrapper .line-items .items {
+    margin-top: 8px;
+    border-bottom: 2px solid #EBECEE;
+    padding-bottom: 8px;
+}
+
+.receipt-content .invoice-wrapper .line-items .items .item {
+    padding: 10px 0;
+    color: #696969;
+    font-size: 15px;
+}
+
+@media (max-width: 767px) {
+    .receipt-content .invoice-wrapper .line-items .items .item {
+        font-size: 13px;
+    }
+		.home-box {
+		width: 100%;
+	}
+}
+
+.receipt-content .invoice-wrapper .line-items .items .item .amount {
+    letter-spacing: 0.1px;
+    color: #84868A;
+    font-size: 16px;
+}
+
+@media (max-width: 767px) {
+    .receipt-content .invoice-wrapper .line-items .items .item .amount {
+        font-size: 13px;
+    }
+		.home-box {
+		width: 100%;
+	}
+}
+
+.receipt-content .invoice-wrapper .line-items .total {
+    margin-top: 30px;
+}
+
+.receipt-content .invoice-wrapper .line-items .total .extra-notes {
+    float: left;
+    width: 40%;
+    text-align: left;
+    font-size: 13px;
+    color: #7A7A7A;
+    line-height: 20px;
+}
+
+@media (max-width: 767px) {
+    .receipt-content .invoice-wrapper .line-items .total .extra-notes {
+        width: 100%;
+        margin-bottom: 30px;
+        float: none;
+    }
+		.home-box {
+		width: 100%;
+	}
+}
+
+.receipt-content .invoice-wrapper .line-items .total .extra-notes strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #454545;
+}
+
+.receipt-content .invoice-wrapper .line-items .total .field {
+    margin-bottom: 7px;
+    font-size: 14px;
+    color: #555;
+}
+
+.receipt-content .invoice-wrapper .line-items .total .field.grand-total {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.receipt-content .invoice-wrapper .line-items .total .field.grand-total span {
+    color: #20A720;
+    font-size: 16px;
+}
+
+.receipt-content .invoice-wrapper .line-items .total .field span {
+    display: inline-block;
+    margin-left: 20px;
+    min-width: 85px;
+    color: #84868A;
+    font-size: 15px;
+}
+
+.receipt-content .invoice-wrapper .line-items .print {
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+
+.receipt-content .invoice-wrapper .line-items .print a i {
+    margin-right: 3px;
+    font-size: 14px;
+}
+
+.receipt-content .footer {
+    margin-top: 40px;
+    margin-bottom: 110px;
+    text-align: center;
+    font-size: 12px;
+    color: #969CAD;
+}
+.footer-menu{
+    display: none;
+}
+.footer-menu li a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #b5b5b5;
+}
+.footer-menu li a .fa {
+  font-size: 24px;
+}
+.user-logout {
+	display: none;
+}
+
+input[type][disabled]{background-color: #f9f9f9;color: #ddd;cursor: default;}
+input[type][disabled] + label{color: #999;cursor: default;}
+.title {font-size: 13px;color: #222;font-weight:700;text-align:center;margin-bottom:5px;}
+	.form-radio{ -webkit-appearance: none; -moz-appearance: none;appearance: none;display:inline-block;position:relative;
+     background-color: #e2e2e2;color: #666;top: 0px;height: 30px;width: 30px;border:0;cursor: pointer;outline:none;}
+.form-radio:checked::before{position: absolute;font: 13px/1 'Open Sans', sans-serif;left: 11px;top: 7px;content: '\02143';  transform: rotate(40deg);}
+.form-radio:hover{background-color: #eee;}
+.form-radio:checked{background-color: #b3e060;}
+
+
+ul.footerList{display:relative; margin:0px; padding:0px;}
+.footerList li{list-style: none;margin: 0px; text-align:center; /*width:22%;*/ width:18%; display:inline-block; padding-top:10px;}
+.footerList li a {display:block; text-align:center; text-decoration:none; color:#b5b5b5;}
+.footerList li a .fa{font-size:24px;}
+.footerList li a div{font-size:11px; font-weight:400;}
+.footerList li a.activeF{color:#ce1518;} 
+.footerList li a:hover{color:#ce1518;} 
+
+.roomConfirm{max-width:82px; border:1px solid #ccc; padding:2px; float:left; margin:6px;}
+.roomNum{width:35px; height:50px; line-height:30px; float:left; border:0px solid #ccc; margin:0px; text-align:center; font-family:arial; position:relative;}
+	.roomNum input[type="radio"]{margin-top:2px;margin-left: 2px;height:30px;}
+	.roomNum a{line-height:30px; text-decoration:none; color:#000;}
+	.booked{background:#666;width: 30px;margin-left: 3px;color: #ccc;}
+	.bookedW{background:#cf1518;width: 30px;margin-left: 3px;color: #fff;}
+	.roomBlock{font-size: 10px;text-align: center;line-height: 15px;}
+	
+	.roomStyle {margin: 0 auto;display:block;}
+	.roomStyle ul{margin:0px 0px 0px 5px; padding:0px;}
+.roomStyle li{list-style:none; display:inline-block; margin:10px 10px;text-align:center;}
+.roomStyle li:first-child{margin-left:0px;}
+.roomStyle li img{border:1px solid #ccc; padding:2px;}
+
+@media only screen and (min-width: 300px) and (max-width: 479px) {
+	.home-box {
+		width: 100%;
+	}
+.roomStyle li{font-size:10px;margin: 4px 2px; text-align:center;}
+.form-style-2 input.input-field, .form-style-2 .tel-number-field, .form-style-2 .textarea-field, .form-style-2 .select-field{width:100%;}	
+.formField{display:block;}
+.col6{width:100%; display:block; font-size:16px; line-height:34px;}
+.col7{width:100%; display:flex; font-size:16px; line-height:34px;}
+.imgRS { height:11px; margin-top: -2px;}
+.col10{width:100%!important;}
+.imgRS1 {
+  height:11px;
+  margin-top:2px;
+}
+.imgRS2 {
+  height:11px;
+  margin-top:10px;
+}
+
+.indicative{font-family: sans-serif;font-size:10px;margin-top:18px;}
+.banktxt .btnPaynow{font-size:13px !important; padding:10px 6px !important; }
+
+.bankTxt td {
+   padding: 8px 8px;
+   font-size: 10px!important;
+}
+ 
+}

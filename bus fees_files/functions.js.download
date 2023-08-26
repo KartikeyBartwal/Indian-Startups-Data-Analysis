@@ -1,0 +1,680 @@
+	function isNumeric(s) {
+		var str = "0123456789";
+		return isCharsInBag (s, str);
+	}
+	
+	function isCharsInBag (s, bag)  {
+		var i;
+		// Search through string's characters one by one.
+		// If character is in bag, append to returnString.
+		if(s == null) {
+			return false;
+		}
+
+		for (i = 0; i < s.length; i++)
+		{
+			// Check that current character isn't whitespace.
+			var c = s.charAt(i);
+			if (bag.indexOf(c) == -1) return false;
+		}
+		return true;
+	}
+	
+	function trim(s)
+{
+    return rtrim(ltrim(s));
+}
+
+function ltrim(s)
+{
+    var l=0;
+    while(l < s.length && s[l] == ' ')
+    {    l++; }
+    return s.substring(l, s.length);
+}
+
+function rtrim(s)
+{
+    var r=s.length -1;
+    while(r > 0 && s[r] == ' ')
+    {    r-=1;    }
+    return s.substring(0, r+1);
+}
+	function generateQueryString(frmName) {
+  frmObj = document.forms[frmName].elements;
+  len = frmObj.length;
+  queryString = '';
+  for(i=0;i<len;i++) {
+    try{ // try-catch block added to prevent problem regarding fieldset element
+	  if(frmObj[i].type.toUpperCase() == 'TEXT') {
+		  frmObj[i].value=frmObj[i].value.replace('�','"');
+		  frmObj[i].value=frmObj[i].value.replace('�','"');
+	  }
+      if(frmObj[i].checked == true && (frmObj[i].type =='radio' || frmObj[i].type =='checkbox')) {
+            if(queryString!='') {
+                queryString +='&';
+            }
+        queryString +=frmObj[i].name + '=' + frmObj[i].value;
+      }
+      else if (frmObj[i].type !='radio' && frmObj[i].type !='checkbox') {
+			if(frmObj[i].type == 'select-multiple') {
+				eleName = frmObj[i].name;
+				eleLength = frmObj[eleName].length;
+				selectedEle='';
+				for(m=0;m<eleLength;m++) {
+					if (frmObj[i][m].selected == true) {
+						if (selectedEle != '') {
+							selectedEle += ',';
+						}
+						selectedEle += frmObj[i][m].value;
+					}
+				}
+				if(queryString!='') {
+					queryString +='&';
+				}
+				newEleName = eleName.replace('[]','');
+				queryString += newEleName+'='+selectedEle;
+			}
+			else {
+				if(queryString!='') {
+					queryString +='&';
+				}          
+				nm = frmObj[i].value;
+				nm = escape(nm);
+				//nm = nm.replace('%','');   // prototype js framework does not work with % in URL 
+				queryString +=frmObj[i].name + '=' + nm;
+
+			}
+      }
+    }
+    catch(e){
+    
+    }
+  }
+  return queryString;  
+}
+	
+	btnBack = '<button type="button" onClick="getBack();" class="btn btn-danger  btn-color btnCls">Back</button>';
+	moduleBooking = "https://ubus.chitkara.edu.in/studentdashboard";
+	moduleBookingBus = "https://ubus.chitkara.edu.in/newsessionfee";
+	
+	modulePayNow = "https://ubus.chitkara.edu.in/newallotment";
+	
+	function getAdd() {
+		blankValues();
+		$(".btnMod").html(btnBack);
+		$(".dList").hide();
+		$(".dForm").show();
+	}
+	
+	function getBack() {
+		$(".btnMod").html(btnAdd);
+		$(".dList").show();
+		$(".dForm").hide();
+		sendReq(listURL,tableHeadArray,divResultName,searchFormName,'');
+	}
+
+	function messageBox(msg) {
+		alert(msg);
+	}
+		 
+	function sendReq(url, tableHeadArray, resultDiv, formName, queryString,asyn) {
+
+			if(formName) {
+			  if(queryString) {
+				 try{ 
+				  queryString += '&'+$('#'+formName).serialize();
+				 }catch(e){}
+			  }
+			  else {
+				  try{
+					queryString = $('#'+formName).serialize();
+				  }catch(e){}
+			  }
+			}
+	 
+			$.ajax({
+					url:url,
+					asynchronous:(asyn=='undefined' ? true : asyn ),
+					method:"post",
+					data: queryString
+				}).done(function(data){
+				j = eval('('+data+')');
+				printResults(resultDiv, j.info, tableHeadArray, formName);
+			});
+	}		
+	
+	function printResults(dv, resultArray, tableHeadArray, formName) {
+			
+			headLength = tableHeadArray.length;
+			len = resultArray.length;
+			
+			globalTB = '<table id="dataTable" class="table table-striped dataTable table-hover" style="width:100%">';
+			mRow =""; 
+			for(i=0;i<headLength;i++) {
+			 	str = (tableHeadArray[i][1]);
+				sty = tableHeadArray[i][2]!='undefined' ? tableHeadArray[i][2] : '';  //cell style
+				mRow += '<td scope="col" '+sty+'><b>'+str+'</b></td>'; 
+			}
+			globalTB += '<thead><tr>'+mRow+'</tr></thead>';
+		
+			if(len!='undefined' && len>0) {
+			   if(len>=15) {	
+			      globalTB += '<tfoot><tr>'+mRow+'</tr></tfoot>';
+			   }
+			   globalTB += '<tbody>';
+			   for(i=0;i<len;i++) {
+				  mRow =""; 
+				  for(h=0;h<headLength;h++) {	  
+				      resultVal = eval('resultArray['+i+'].'+tableHeadArray[h][0]);
+					  if (typeof resultVal === "undefined") {
+						  resultVal = "";
+					  }
+					  sty = tableHeadArray[h][2]!='undefined' ? tableHeadArray[h][2] : '';  //cell style
+					  nowrap='';
+					  if(tableHeadArray[h][0]=='action') {
+						nowrap='nowrap="nowrap"';  
+						tdStrVal = resultVal;
+					  }
+					  else {
+						 tdStrVal = resultVal.toString().toUpperCase();
+					  }
+                      mRow +='<td '+nowrap+' '+sty+'>'+tdStrVal+'&nbsp;</td>';
+				  }
+				  globalTB +="<tr>"+mRow+"</tr>";
+			   }
+			   globalTB += '</tbody>';
+			}
+			else {
+				globalTB += '<tbody><tr><td colspan="'+headLength+'" style="text-align:center">No data found</td></tr></tbody>';
+			}
+			globalTB += '<tbody></table>';
+			 
+			$("."+dv).html(globalTB);
+			
+			$(document).ready( function () {
+				$('#dataTable').DataTable({
+					"ordering": false,
+					"responsive": true,
+					"pageLength": 50
+				});
+			} );
+	}
+	
+	function showRequest(formData, jqForm, options) { 
+		var queryString = $.param(formData); 
+		return true; 
+	} 
+		
+	function showResponse(responseText, statusText, xhr, $form)  { 
+	
+		ret = JSON.parse(responseText);
+			
+		if(ret['error']=='err') {
+		   messageBox(ret['msg']);   
+		}
+		else {
+			if(ret['error']!='err') {
+				messageBox("Data saved successfully");	
+				getBack();
+				 return false;				
+				 if(confirm("Data saved successfully \n\n Do you want to add more?")) {
+					 blankValues();
+				 }
+				 else {
+					 getBack();
+					 return false;
+				 }
+			 } 
+			 else {
+				messageBox(ret['msg']); 
+			 }
+			 
+		} 
+		return true;
+	} 
+	
+	function addOption(obj, val, txt) {
+		txt = txt.toString().toUpperCase();  
+		var objOption = new Option(txt, val);
+		obj.options.add(objOption);
+	}
+
+	function getDropList(url,fId,sel,chkId,funs) {
+				
+				if($.trim(sel)=='div') {
+				   $("."+fId).html("");	
+				}
+				else if($.trim(sel)=='chkbox') {
+				   $("."+fId).html("");	
+				}
+				else {
+					frm = eval("document.getElementById('"+fId+"')");
+					frm.length = null;
+					if (typeof chkId === "undefined") {
+						addOption(frm, '', sel);
+					}
+					else if(chkId== null) {
+					   addOption(frm, '', sel);
+					} 
+					else {
+						addOption(frm, chkId, sel);
+					}
+					frm.selectedIndex=0;
+				}
+				queryString ="id=1";
+				
+				$.ajax({
+						url:url,
+						method:"post",
+						async:false,
+						data: queryString
+					}).done(function(data){
+						ret = JSON.parse(data);
+						jjLoop = ret['info'];
+						str = '';
+						if($.trim(sel)=='div') {
+							str += '<ul class="schoolList">';
+						}
+						else if($.trim(sel)=='chkbox') {
+							str += '<ul class="schoolList">';
+						}
+						for(iiLoop=0;iiLoop<jjLoop.length;iiLoop++) { 			 
+							id=jjLoop[iiLoop].idVal;
+							name=jjLoop[iiLoop].idName;
+							txt = name.toString().toUpperCase();  
+							if($.trim(sel)=='chkbox') {
+								
+								fClk = "";
+								if (typeof funs === "undefined") {
+									fClk = "";
+								}
+								else if(funs== null) {
+									fClk = "";
+								}
+								else if(trim(funs)!='') {
+									fClk = "onClick='"+funs+";'";
+								}
+								
+								ids = chkId+''+iiLoop;
+								names = chkId;
+								str += '<li><input '+fClk+' type="checkbox" name="'+names+'[]" id="'+ids+'" value="'+id+'">&nbsp;&nbsp;<label style="cursor:pointer;" class="form-label" for="'+ids+'">'+txt+'</label></li>';
+							}
+							else if($.trim(sel)=='div') {
+								fClk = "";
+								if (typeof funs === "undefined") {
+									fClk = "";
+								}
+								else if(funs== null) {
+									fClk = "";
+								}
+								else if(trim(funs)!='') {
+									fClk = "onClick='"+funs+";'";
+								}
+								ids = chkId+''+iiLoop;
+								names = chkId;
+								str += '<li><label style="cursor:pointer;" class="form-label" for="'+ids+'"><input '+fClk+' id="'+ids+'" name="'+names+'" +class="form-check-input" type="checkbox" value="'+id+'"> '+txt+'</label></li>'
+							}
+							else {
+								addOption(frm, id, name);
+							}
+						}
+						if($.trim(sel)=='div') {
+							str += '</ul>';
+							$("."+fId).html(str);	
+						}
+						else if($.trim(sel)=='chkbox') {
+							str += '</ul>';
+							$("."+fId).html(str);	
+						}
+				});
+			 
+	    }		
+		
+		function validateAddForm(frm) {
+			
+			var len = fieldsArray.length;           
+			for(i=0;i<len;i++) {
+				str = eval("frm."+(fieldsArray[i][0])+".value");
+				if($.trim(str)=='' ) {
+					alert (fieldsArray[i][1]);
+					eval("frm."+(fieldsArray[i][0])+".focus();");
+					return false;
+				}
+			}
+			initAddEdit('output2','frmAddEdit');
+			return	false;	
+		}
+		
+		function getStoppage(frm,url) {
+			isFlag=0;
+			$(".detailed-view-box").hide();
+			$(".detailed-view-box").html("");
+			
+			frm.preferenceStoppageId.length = null;
+			addOption(frm.preferenceStoppageId, '', 'Choose stoppage');
+			frm.preferenceStoppageId.selectedIndex=0;
+			
+			str = frm.preference.value;
+			qData = "preferenceId="+frm.preference.value;
+			if(str=='') {
+			   return false;	
+			}
+			
+			$.ajax({
+					url:url,
+					method:"post",
+					async:false,
+					data: qData
+				}).done(function(data){
+				  
+				ret = JSON.parse(data);
+				jjLoop = ret['info'];
+				for(iiLoop=0;iiLoop<jjLoop.length;iiLoop++) { 			 
+					id=jjLoop[iiLoop].idVal;
+					name=jjLoop[iiLoop].idName;
+					txt = name.toString().toUpperCase();  
+					addOption(frm.preferenceStoppageId, id, txt);
+				}
+				vdata = ret['viewDetail'];
+				$(".detailed-view-box").html(trim(vdata));
+				$(".detailed-view-box").show();
+			});			
+	    }	
+		
+		function getStoppageBus(frm,url) {
+			isFlag=0;
+			$(".detailed-view-box").hide();
+			$(".detailed-view-box").html("");
+			
+			frm.preferenceStoppageId.length = null;
+			addOption(frm.preferenceStoppageId, '', 'Choose stoppage');
+			frm.preferenceStoppageId.selectedIndex=0;
+			
+			str = frm.preference.value;
+			qData = "preferenceId="+frm.preference.value;
+			if(str=='') {
+			   return false;	
+			}
+			
+			$.ajax({
+					url:url,
+					method:"post",
+					async:false,
+					data: qData
+				}).done(function(data){
+				  
+				ret = JSON.parse(data);
+				jjLoop = ret['info'];
+				for(iiLoop=0;iiLoop<jjLoop.length;iiLoop++) { 			 
+					id=jjLoop[iiLoop].idVal;
+					name=jjLoop[iiLoop].idName;
+					txt = name.toString().toUpperCase();  
+					addOption(frm.preferenceStoppageId, id, txt);
+				}
+				vdata = ret['viewDetail'];
+				$(".detailed-view-box").html(trim(vdata));
+				$(".detailed-view-box").show();
+			});			
+	    }	
+		
+		function getDropDownList(frm,url,qData) {
+				isFlag=0;
+				$.ajax({
+						url:url,
+						method:"post",
+						async:false,
+						data: qData
+					}).done(function(data){
+						ret = JSON.parse(data);
+						jjLoop = ret['info'];
+						for(iiLoop=0;iiLoop<jjLoop.length>0;iiLoop++) { 			 
+							id=jjLoop[iiLoop].idVal;
+							name=jjLoop[iiLoop].idName;
+							txt = name.toString().toUpperCase();  
+							addOption(frm, id, txt);
+						}
+				});
+		}
+		
+		function addBooking(frm,url) {
+				
+				
+				frm = document.frmBooking;
+				var fieldsArray = new Array(
+										new Array("preference","Choose city"),
+										new Array("preferenceStoppageId","Choose stoppage"));
+										
+				var len = fieldsArray.length;           
+				for(i=0;i<len;i++) {
+				 	if(eval("frm."+(fieldsArray[i][0])+".value")=='') {
+					   messageBox (fieldsArray[i][1]);
+					   eval("frm."+(fieldsArray[i][0])+".focus();");
+					   return false;
+					}
+				}
+				
+				$.ajax({
+						url:moduleBooking+"/"+url,
+						method:"post",
+						async:false,
+						data: $("#frmBooking").serialize()
+					}).done(function(data){
+						var rval=data.split('~');
+						if(trim(rval[0])=='ok') {
+							messageBox(trim(rval[0]));
+							document.frmTransport.act.value = trim(rval[1]);
+							document.getElementById('frmTransport').action = "https://ubus.chitkara.edu.in/booknow";
+							document.getElementById('frmTransport').submit();
+							return false;
+						}
+						else {
+							messageBox(rval[1]);
+						}
+				});
+		}
+		
+		function addBookingBus(frm,url) {
+				
+				
+				frm = document.frmBooking;
+				var fieldsArray = new Array(
+										new Array("preference","Choose city"),
+										new Array("preferenceStoppageId","Choose stoppage"));
+										
+				var len = fieldsArray.length;           
+				for(i=0;i<len;i++) {
+				 	if(eval("frm."+(fieldsArray[i][0])+".value")=='') {
+					   messageBox (fieldsArray[i][1]);
+					   eval("frm."+(fieldsArray[i][0])+".focus();");
+					   return false;
+					}
+				}
+				
+				$.ajax({
+						url:moduleBookingBus+"/"+url,
+						method:"post",
+						async:false,
+						data: $("#frmBooking").serialize()
+					}).done(function(data){
+						var rval=data.split('~');
+						if(trim(rval[0])=='ok') {
+							messageBox(trim(rval[0]));
+							document.frmTransport.act.value = trim(rval[1]);
+							document.getElementById('frmTransport').action = "https://ubus.chitkara.edu.in/newsessionfee/booknow";
+							document.getElementById('frmTransport').submit();
+							return false;
+						}
+						else {
+							messageBox(rval[1]);
+						}
+				});
+		}
+		
+		function getViewStoppage(id) {
+			txt = $("#preferenceStoppageId option:selected" ).text();
+			if(txt=='') {
+				txt = "Choose stoppage";
+			}
+			$(".vStoppage").html(txt);
+		} 
+		
+		function addPayNow(frm,url,id) {
+				
+			frm = document.frmBooking;
+			
+			$.ajax({
+					url:modulePayNow+"/"+url,
+					method:"post",
+					async:false,
+					data: 'id='+id
+			}).done(function(data){
+				var rval=data.split('~');
+				if(trim(rval[0])=='ok') {
+					//messageBox(trim(rval[0]));
+					document.frmHostel.act.value = trim(rval[1]);
+					document.getElementById('frmHostel').action = "https://ubus.chitkara.edu.in/booknow";
+					document.getElementById('frmHostel').submit();
+					return false;
+				}
+				else {
+					messageBox(rval[1]);
+				}
+			});
+		}
+		
+		
+		function addPayNow_bk(frm,url) {
+				
+				
+				frm = document.frmBooking;
+				
+				$.ajax({
+						url:modulePayNow+"/"+url,
+						method:"post",
+						async:false,
+						data: 'id=1'
+					}).done(function(data){
+						var rval=data.split('~');
+						if(trim(rval[0])=='ok') {
+							messageBox(trim(rval[0]));
+							document.frmHostel.act.value = trim(rval[1]);
+							document.getElementById('frmHostel').action = "https://ubus.chitkara.edu.in/booknow";
+							document.getElementById('frmHostel').submit();
+							return false;
+						}
+						else {
+							messageBox(rval[1]);
+						}
+				});
+		}
+		
+		 
+		
+		function getWaiting(inArr) {
+		
+			var items = document.getElementsByClassName('bookedW');
+			for (var wi = 0; wi < items.length; wi++) {
+				tValue = items[wi].id;
+				isInChk=0;
+				for(inLoop=0;inLoop<inArr.length;inLoop++) {
+					idIn =	inArr[inLoop];
+					if(idIn==tValue) {
+						isInChk=1;
+						break;
+					}
+				}
+				if(isInChk==0) {
+					idIn = tValue;
+					$('#'+idIn).removeClass('bookedW');  	
+					inVal = '<input style="cursor:pointer;" type="radio" class="form-radio" value="'+idIn+'" name="rdRoom" id="'+idIn+'">';
+					$("#"+idIn).html(inVal);
+				}
+			}
+			isFlag='0';  
+		}
+		
+		function getDashboardValidation() {
+			$(".dOccupancy").html("");
+			if(document.getElementById('dashboardFromDate').value=='') {
+				messageBox("Select report as on date");
+				document.getElementById('dashboardFromDate').focus();
+				return false;
+			}
+			fromDate = document.getElementById('dashboardFromDate').value;
+			
+			url = 'dashboard/getOccupancyList';
+			
+			qData = "fromDate="+fromDate; 
+			$.ajax({
+				type: "POST",
+				url: url,
+				async:false,
+				data: qData,
+				success: function(data) {
+					$(".dOccupancy").html(trim(data));
+				},
+				error: function(data) {
+					messageBox("some Error");
+				}
+			});
+		}
+		
+		
+		function validatePassword() {
+	 		var currentPassword, newPassword, confirmPassword, output = true;
+
+			currentPassword = (document.frmChange.currentPassword);
+			newPassword = (document.frmChange.newPassword);
+			confirmPassword = (document.frmChange.confirmPassword);
+
+			if (!trim(currentPassword.value)) {
+				currentPassword.focus();
+				document.getElementById("currentPassword").innerHTML = "required";
+				return false;
+			}
+			else if (!trim(newPassword.value)) {
+				newPassword.focus();
+				document.getElementById("newPassword").innerHTML = "required";
+				return false;
+			}
+			else if (!trim(confirmPassword.value)) {
+				confirmPassword.focus();
+				document.getElementById("confirmPassword").innerHTML = "required";
+				return false;
+			}
+			if (trim(newPassword.value) != trim(confirmPassword.value)) {
+			 	newPassword.focus();
+				document.getElementById("confirmPassword").innerHTML = "not same";
+				return false;
+			}
+			
+			$.ajax({
+					url:"changepassword/updatepassword",
+					method:"post",
+					data: $('#frmChange').serialize(),
+					async:false,
+				}).done(function(responseText){
+					ret = JSON.parse(responseText);
+					if(ret['error']=='err') {
+					   messageBox(ret['msg']);   
+					}
+					else {
+					   messageBox("Password Changed");
+					   document.location.href="https://ubus.chitkara.edu.in/Studentlogout";		
+					   return false;					   
+					}
+			});
+	 	return false;
+	} 
+	
+	function getAgreeFee() {
+		$(".hostelhistory").hide();
+		if(document.getElementById('acceptTerms').checked==true) {
+			$(".agree").hide();
+			$(".hostelhistory").show();
+		}				
+		else {
+			messageBox("Please select the agree & continue");
+		}
+	}

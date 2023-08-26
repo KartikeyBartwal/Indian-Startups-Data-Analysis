@@ -1,0 +1,110 @@
+@media only screen and (max-width: 743px) {
+    .main {
+        padding-bottom: 90px;
+        overflow: scroll;
+        position: relative;
+    }
+	
+	.user-logout {
+		display: block;
+	}
+
+    .home-box {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .header {
+        background-color: transparent;
+    }
+
+    .head-with-nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .logo {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .head-with-nav ul {
+        display: none;
+    }
+
+    .footer-menu {
+        width: 100%;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        background: #ffffff;
+        height: 82px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-menu ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+	
+	
+
+    .footer-menu ul li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 33.3%;
+    }
+
+    .footer-menu ul li a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-menu ul li a img {
+        margin-bottom: 4px;
+    }
+
+    .footer-menu ul li a span {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #545454;
+    }
+
+    .footer-menu ul li.active a span {
+        color: #E3000F;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    .login-form {
+        width: 100%;
+        padding: 0 15px;
+    }
+	
+	.user-logout {
+		display: block;
+	}
+	
+    .login-form .form-group {
+        width: 100%;
+    }
+
+    .form-button {
+        width: 100%;
+    }
+
+    .email-text {
+        width: 100%;
+        flex-direction: column;
+    }
+}

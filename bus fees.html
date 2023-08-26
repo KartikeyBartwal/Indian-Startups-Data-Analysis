@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://ubus.chitkara.edu.in/paymentreceipt -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <link rel="icon" type="image/x-icon" href="https://ubus.chitkara.edu.in//student/images/fevicon.svg">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./bus fees_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="all" href="./bus fees_files/custom.css">
+    <link rel="stylesheet" type="text/css" media="all" href="./bus fees_files/responsive.css">
+	
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+	<script defer="defer" src="./bus fees_files/functions.js.download"></script>
+    <link href="./bus fees_files/css2" rel="stylesheet">
+    <title>UBus Management</title>
+	<style>
+	 	.tbl-data {
+			position: relative;
+			font-size:12px;
+			/*padding: 1rem;*/
+		 	border: solid #f8f9fa;
+			border-width: .2rem 0 0;
+			overflow: auto;
+		}
+		ul.rankList{padding: 0px; margin-top: 10px;margin-bottom: 10px;list-style-type: none;line-height: 1.8;}
+		.rankList li{padding: 0px;}
+		
+		@media only screen and (min-width: 300px) and (max-width: 479px) 	
+			.tbl-data {
+				overflow: auto;
+			}
+		}
+	 	.payInfo{display:flex;justify-content: space-between;}
+		.card-body1 {margin-top:20px;padding:10px;}			
+		.card {
+			margin-bottom: 24px;
+			-webkit-box-shadow: 0 2px 4px rgb(126 142 177 / 10%);
+			box-shadow: 0 2px 4px rgb(126 142 177 / 10%);
+		}
+		.card {
+			position: relative;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			min-width: 0;
+			word-wrap: break-word;
+			background-color: #fff;
+			background-clip: border-box;
+			border: 0 solid #eaedf1;
+			border-radius: .25rem;
+		}
+
+		.activity-wid {
+			margin-left: 16px;
+		}
+		.mb-0 {
+			margin-bottom: 0!important;
+		}
+		.list-unstyled {
+			padding-left: 0;
+			list-style: none;
+		}
+
+		.activity-wid .activity-list {
+			position: relative;
+			padding: 0 0 33px 30px;
+		}
+
+		.activity-border:before {
+			content: "";
+			position: absolute;
+			height: 38px;
+			border-left: 3px dashed #eaedf1;
+			top: 40px;
+			left: 0;
+		}
+
+		.activity-wid .activity-list .activity-icon {
+			position: absolute;
+			left: -20px;
+			top: 0;
+			z-index: 2;
+		}
+		.avatar-sm {
+			height: 2.5rem;
+			width: 2.5rem;
+		}
+
+		.media {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: start;
+			-ms-flex-align: start;
+			align-items: flex-start;
+		}
+
+		.me-3 {
+			margin-right: 1rem!important;
+		}
+
+		.font-size-15 {
+			font-size: 15px!important;
+		}
+
+		.font-size-14 {
+			font-size: 14px!important;
+		}
+		.text-muted {
+			color: #74788d!important;
+		}
+
+		.text-end {
+			text-align: right!important;
+		}
+
+		.font-size-13 {
+			font-size: 13px!important;
+		}
+
+		.avatar-title {
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			height: 100%;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			width: 100%;
+		}
+		.bg-soft-primary {
+			background-color: rgba(82,92,229,.25)!important;
+		}
+		.bg-soft-success {
+			background-color: rgba(35,197,143,.25)!important;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="main">
+		<style>
+.logout-icon:hover img{
+  background-color: transparent;
+}
+</style>
+<div class="header">
+	<div class="head-with-nav">
+		<div class="logo">
+			<a href="https://ubus.chitkara.edu.in/"><img src="./bus fees_files/logo.png" alt="Logo"></a>
+		</div>
+		<ul>
+			<li class="">
+				<a href="https://ubus.chitkara.edu.in/">Home</a>
+			</li>
+			<li class="">
+				<a href="https://ubus.chitkara.edu.in/Changepassword">Change Password</a>
+			</li>
+			<li>
+				<a href="https://ubus.chitkara.edu.in/Studentlogout">Logout</a>
+			</li>
+		</ul>
+		<div class="user-logout">
+			<a href="https://ubus.chitkara.edu.in/Studentlogout">
+				<img class="logout-icon" style="cursor:pointer;position: absolute;right: 24px;top: 26px;" src="./bus fees_files/logout-red.png" alt="LogoutPic">
+			</a>		
+		</div>
+	</div>
+</div>
+<div class="home-box">
+	<div class="user-box">
+		<div class="user-detail">
+			<div class="user-profile">
+				<img src="./bus fees_files/S197990Ve.jpg" alt="ProfilePic">
+			</div>
+			<div class="user-content" style="width:100%">
+				<h4>Hi, KARTIKEY SINGH BARTWAL</h4>
+				<p>PAWAN SINGH BARTWAL</p>
+				<p>2210990492</p>
+				<!-- <p>2022-CUP-BE-CSE</p> -->
+			</div>
+			
+		</div>
+	</div>
+</div>		
+		
+		<div class="main">
+			<div class="home-box">
+					<div class="col-xl-12 user-box">
+						<div class="card">
+							<div class="card-body1">
+								<h4 class="header-title mb-4">Payment Receipt</h4>
+								<div class="alert-success fade show" role="alert" style="background-color:#fff;">
+													<p class="mb-0">
+														</p><table border="0" width="100%" class="table">	
+															<tbody><tr>
+																<td style="font-size:13px;text-align:left;"><div style="color:red;margin-bottom: 10px;">JUL-JUN 2023-24</div>CHANDIGARH<br>SECTOR 29/30 LIGHTS<br><br><ul class="rankList"><li>Due Amount: <span style="color:red;font-weight:bold;">37000</span></li><li>Paid Amount: <span style="color:green;font-weight:bold;">37000</span></li></ul>Valid Upto <span style="color:red;">30-JUN-2024</span></td>
+																<td style="font-size:13px;text-align:right;"><b>Rs. 37000<br><span style="color:green;">Success</span></b><br>UT9062<br>112926827422<br>01-Jul-2023<br>10:40:47 AM</td>
+															</tr>
+														</tbody></table>
+														<div class="col-md-12 tbl-data"></div>
+													<p></p>	
+												</div><div class="alert-success fade show" role="alert" style="background-color:#fff;">
+													<p class="mb-0">
+														</p><table border="0" width="100%" class="table">	
+															<tbody><tr>
+																<td style="font-size:13px;text-align:left;"><div style="color:red;margin-bottom: 10px;">JUL-JUN 2022-23</div>CHANDIGARH<br>SECTOR 29 MARKET<br>ROUTE NO 15<br><ul class="rankList"><li>Due Amount: <span style="color:red;font-weight:bold;">25575</span></li><li>Paid Amount: <span style="color:green;font-weight:bold;">25575</span></li></ul>Valid Upto <span style="color:red;">30-JUN-2023</span></td>
+																<td style="font-size:13px;text-align:right;"><b>Rs. 25575<br><span style="color:green;">Success</span></b><br>UT4304<br>111671478814<br>10-Oct-2022<br>09:41:00 PM</td>
+															</tr>
+														</tbody></table>
+														<div class="col-md-12 tbl-data"></div>
+													<p></p>	
+												</div>							</div>
+					</div>
+				</div> 
+			</div>
+		</div>
+	</div>	
+	<div class="footer-menu">
+	<ul class="footerList" id="footerList">
+		<li>
+			<a href="https://ubus.chitkara.edu.in/" class="btnChk ">
+				<i class="fa fa-home" aria-hidden="true"></i>
+				<div>Home</div>
+			</a>
+		</li>
+		<li>
+			<a href="https://ubus.chitkara.edu.in/Changepassword" class="btnChk ">
+				<i class="fa fa-keyboard-o" aria-hidden="true"></i>
+				<div>Change Password</div>
+			</a>
+		</li>
+		<li>
+			<a href="https://ubus.chitkara.edu.in/paymentreceipt#" class="btnChk">
+				<i class="fa fa-bell" aria-hidden="true"></i>
+				<div>Notification</div>
+			</a>
+		</li>
+	</ul>
+</div>
+ 
+	<form name="frmHostel" id="frmHostel" autocomplete="off" method="post" accept-charset="utf-8" style="display:none">
+		<input type="hidden" readonly="readonly" id="act" name="act">
+	</form>
+
+</body></html>
